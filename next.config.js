@@ -1,4 +1,31 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+    ],
+  },
 
-module.exports = nextConfig
+  async redirect() {
+    return [
+      {
+        source: "/products/test",
+        destination: "/products",
+        permanent: true,
+      },
+    ];
+  },
+  async rewrites() {
+    return [
+      {
+        source: "/test",
+        destination: "/",
+      },
+    ];
+  },
+};
+
+module.exports = nextConfig;
