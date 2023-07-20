@@ -1,16 +1,17 @@
-import { Metadata } from "next";
-import Link from "next/link";
-import "./globals.css";
-import styles from "./layout.module.css";
-import { Nanum_Gothic } from "next/font/google";
+import { Metadata } from 'next';
+import Link from 'next/link';
+import './globals.css';
+import styles from './layout.module.css';
+import { Nanum_Gothic } from 'next/font/google';
+import { NextAuthProvider } from './providers';
 
-const gothic = Nanum_Gothic({ subsets: ["latin"], weight: "700" });
+const gothic = Nanum_Gothic({ subsets: ['latin'], weight: '700' });
 
 export const metadata: Metadata = {
-  title: "멋진 제품 사이트",
-  description: "멋진 제품을 판매하는 곳입니다.",
+  title: '멋진 제품 사이트',
+  description: '멋진 제품을 판매하는 곳입니다.',
   icons: {
-    icon: "/favicon.ico",
+    icon: '/favicon.ico',
   },
 };
 
@@ -35,7 +36,7 @@ export default function RootLayout({
             <Link href="/contact">Contact</Link>
           </nav>
         </header>
-        {children}
+        <NextAuthProvider>{children}</NextAuthProvider>
       </body>
     </html>
   );
